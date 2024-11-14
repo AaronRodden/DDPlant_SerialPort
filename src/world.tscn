@@ -1,0 +1,54 @@
+[gd_scene load_steps=6 format=3 uid="uid://coa17qjlk5v8y"]
+
+[ext_resource type="Texture2D" uid="uid://dogcjfm7vbtns" path="res://assets/sky1.png" id="1_a8nhx"]
+[ext_resource type="Script" path="res://src/world_manager.gd" id="1_ufc01"]
+[ext_resource type="Texture2D" uid="uid://dndhys58ejjp1" path="res://assets/long_tree.svg" id="2_qyaja"]
+[ext_resource type="Texture2D" uid="uid://c7c6viexs13cm" path="res://assets/hills/Hills Layer 05.png" id="3_lky7k"]
+[ext_resource type="PackedScene" uid="uid://csioa30rlb4m4" path="res://src/leaf.tscn" id="5_281m6"]
+
+[node name="World" type="StaticBody2D"]
+script = ExtResource("1_ufc01")
+
+[node name="Skybox" type="Sprite2D" parent="."]
+position = Vector2(807, 324)
+texture = ExtResource("1_a8nhx")
+
+[node name="Tree" type="Sprite2D" parent="."]
+position = Vector2(780, 515)
+scale = Vector2(2.50582, 2.50582)
+texture = ExtResource("2_qyaja")
+
+[node name="Floor" type="Sprite2D" parent="."]
+position = Vector2(761, 81)
+scale = Vector2(6.60547, 6.60547)
+texture = ExtResource("3_lky7k")
+
+[node name="Leaf" parent="." instance=ExtResource("5_281m6")]
+visible = false
+position = Vector2(748, 171)
+rotation = 1.5708
+scale = Vector2(0.080244, 0.080244)
+
+[node name="Leaf2" parent="." instance=ExtResource("5_281m6")]
+visible = false
+position = Vector2(735, 423)
+rotation = 1.5708
+scale = Vector2(0.080244, 0.080244)
+
+[node name="Leaf3" parent="." instance=ExtResource("5_281m6")]
+visible = false
+position = Vector2(733, 574)
+rotation = 1.5708
+scale = Vector2(0.080244, 0.080244)
+
+[node name="Leaf4" parent="." instance=ExtResource("5_281m6")]
+visible = false
+position = Vector2(806, 304)
+rotation = 2.54818
+scale = Vector2(0.080244, 0.080244)
+
+[node name="Leaf5" parent="." instance=ExtResource("5_281m6")]
+visible = false
+position = Vector2(827, 486)
+rotation = 2.77682
+scale = Vector2(0.080244, 0.080244)

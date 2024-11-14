@@ -11,6 +11,11 @@ config_version=5
 [application]
 
 config/name="DDPlant_SerialPort"
-run/main_scene="res://serial_port_test.tscn"
+run/main_scene="res://src/world.tscn"
 config/features=PackedStringArray("4.0", "Forward Plus")
 config/icon="res://icon.svg"
+
+[display]
+
+window/size/viewport_width=1632
+window/size/viewport_height=918

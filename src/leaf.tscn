@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://csioa30rlb4m4"]
+
+[ext_resource type="Texture2D" uid="uid://c88j1k6kxmvwe" path="res://assets/mapleleaf_papercraft.png" id="1_wyq6l"]
+[ext_resource type="Script" path="res://src/Leaf.gd" id="2_mfe5e"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sr8ub"]
+size = Vector2(1084.95, 1297.18)
+
+[node name="Leaf" type="Sprite2D"]
+position = Vector2(5.00002, 26)
+scale = Vector2(0.234874, 0.234874)
+texture = ExtResource("1_wyq6l")
+script = ExtResource("2_mfe5e")
+
+[node name="LeafHurtbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeafHurtbox"]
+position = Vector2(-1.75768, 28.3677)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_sr8ub")
