@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://coa17qjlk5v8y"]
+[gd_scene load_steps=7 format=3 uid="uid://coa17qjlk5v8y"]
 
 [ext_resource type="Texture2D" uid="uid://dogcjfm7vbtns" path="res://assets/sky1.png" id="1_a8nhx"]
 [ext_resource type="Script" path="res://src/world_manager.gd" id="1_ufc01"]
 [ext_resource type="Texture2D" uid="uid://dndhys58ejjp1" path="res://assets/long_tree.svg" id="2_qyaja"]
 [ext_resource type="Texture2D" uid="uid://c7c6viexs13cm" path="res://assets/hills/Hills Layer 05.png" id="3_lky7k"]
 [ext_resource type="PackedScene" uid="uid://csioa30rlb4m4" path="res://src/leaf.tscn" id="5_281m6"]
+[ext_resource type="PackedScene" uid="uid://v8ythwy1ykle" path="res://src/obstacle_spawner.tscn" id="6_etdqo"]
 
 [node name="World" type="StaticBody2D"]
 script = ExtResource("1_ufc01")
@@ -52,3 +53,48 @@ visible = false
 position = Vector2(827, 486)
 rotation = 2.77682
 scale = Vector2(0.080244, 0.080244)
+
+[node name="ObstacleSpawner1" parent="." instance=ExtResource("6_etdqo")]
+visible = true
+position = Vector2(-255, 170)
+spawner_id = 1
+
+[node name="ObstacleSpawner2" parent="." instance=ExtResource("6_etdqo")]
+visible = true
+position = Vector2(-255, 476)
+spawner_id = 2
+
+[node name="ObstacleSpawner3" parent="." instance=ExtResource("6_etdqo")]
+visible = true
+position = Vector2(-255, 782)
+spawner_id = 3
+
+[node name="ObstacleSpawner4" parent="." instance=ExtResource("6_etdqo")]
+visible = true
+position = Vector2(780, 170)
+spawner_id = 4
+
+[node name="ObstacleSpawner5" parent="." instance=ExtResource("6_etdqo")]
+visible = true
+position = Vector2(780, 476)
+spawner_id = 5
+
+[node name="ObstacleSpawner6" parent="." instance=ExtResource("6_etdqo")]
+visible = true
+position = Vector2(780, 782)
+spawner_id = 6
+
+[node name="ObstacleSpawner7" parent="." instance=ExtResource("6_etdqo")]
+visible = true
+position = Vector2(1870, 170)
+spawner_id = 7
+
+[node name="ObstacleSpawner8" parent="." instance=ExtResource("6_etdqo")]
+visible = true
+position = Vector2(1870, 476)
+spawner_id = 8
+
+[node name="ObstacleSpawner9" parent="." instance=ExtResource("6_etdqo")]
+visible = true
+position = Vector2(1870, 782)
+spawner_id = 9

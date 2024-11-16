@@ -2,9 +2,12 @@ extends StaticBody2D
 
 ## Manager script that handles world organization
 
+@export var world_health = 100 # Health bar out of 100
+
 var Leaf = preload("res://src/leaf.tscn")
 
 var rng = RandomNumberGenerator.new()
+
 
 # Called when the node enters the scene tree for the first time.
 # Set's up the game world on first startup

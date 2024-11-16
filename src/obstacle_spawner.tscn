@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://v8ythwy1ykle"]
+
+[ext_resource type="Script" path="res://src/obstacle_spawner_manager.gd" id="2_d7vjh"]
+
+[node name="ObstacleSpawner" type="Sprite2D"]
+visible = false
+position = Vector2(2, 3)
+script = ExtResource("2_d7vjh")

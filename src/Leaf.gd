@@ -2,19 +2,12 @@ class_name Leaf
 extends Sprite2D
 
 # TODO: Turn these into growing animations on initilization 
-var mapleleaf_path = "res://assets/mapleleaf_papercraft.png"
-var orangeleaf_path = "res://assets/orangeleaf_papercraft.png"
-var greenleaf_path = "res://assets/greenleaf_papercraft.png"
-var bendleaf_white_path = "res://assets/bendleaf_white_papercraft.png"
+var mapleleaf_path = "res://assets/mapleleaf_papercraft.svg"
+var orangeleaf_path = "res://assets/orangeleaf_papercraft.svg"
+var greenleaf_path = "res://assets/greenleaf_papercraft.svg"
+var bendleaf_white_path = "res://assets/bendleaf_white_papercraft.svg"
 
 var texture_path = "";
-
-#func new_spell_input_ui(spell_input: String):
-#	var new_spell_input_ui = SpellInputUI.new()
-#	new_spell_input_ui.spell_texture = spell_input
-#	new_spell_input_ui.h_offset = h_offset
-#	h_offset += 75
-#	return new_spell_input_ui
 
 # Leaf constructor
 func new_leaf(leaf_enum_value, leaf_position, leaf_rotation):
@@ -35,8 +28,8 @@ func new_leaf(leaf_enum_value, leaf_position, leaf_rotation):
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	self.texture = load(texture_path)
-	self.scale.x = 0.08 # TODO: Scale magic number here...
-	self.scale.y = 0.08 # TODO: Scale magic number here...
+	self.scale.x = 0.235 # TODO: Scale magic number here...
+	self.scale.y = 0.235 # TODO: Scale magic number here...
 	self.visible = true
 
 
