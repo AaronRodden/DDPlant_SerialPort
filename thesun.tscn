@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://dh1ddmuret1et"]
+
+[ext_resource type="Texture2D" uid="uid://bqfo80dm4aob1" path="res://sunnyWeather.png" id="1_wmkbb"]
+[ext_resource type="Texture2D" uid="uid://b6lypv8ant1f2" path="res://sun_shiny.png" id="2_vbqdj"]
+[ext_resource type="Script" path="res://thesun.gd" id="3_2onqv"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_y4u16"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_wmkbb")
+}],
+"loop": true,
+"name": &"restingface",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_vbqdj")
+}],
+"loop": true,
+"name": &"smileyface",
+"speed": 5.0
+}]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D"]
+position = Vector2(785, 237)
+sprite_frames = SubResource("SpriteFrames_y4u16")
+animation = &"restingface"
+script = ExtResource("3_2onqv")
