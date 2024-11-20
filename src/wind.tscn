@@ -1,0 +1,76 @@
+[gd_scene load_steps=11 format=3 uid="uid://dt8vuk4yfkd1a"]
+
+[ext_resource type="Script" path="res://src/wind.gd" id="1_6gntj"]
+[ext_resource type="Texture2D" uid="uid://bl0eo43ioquci" path="res://assets/tornado-sheet_48x64.png" id="1_tt2yc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xtlne"]
+atlas = ExtResource("1_tt2yc")
+region = Rect2(0, 0, 48, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pvwxg"]
+atlas = ExtResource("1_tt2yc")
+region = Rect2(48, 0, 48, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i0wxg"]
+atlas = ExtResource("1_tt2yc")
+region = Rect2(96, 0, 48, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kffu6"]
+atlas = ExtResource("1_tt2yc")
+region = Rect2(144, 0, 48, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r6gv4"]
+atlas = ExtResource("1_tt2yc")
+region = Rect2(192, 0, 48, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qxmer"]
+atlas = ExtResource("1_tt2yc")
+region = Rect2(240, 0, 48, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_y8h1w"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xtlne")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pvwxg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i0wxg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kffu6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r6gv4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qxmer")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u7ccn"]
+size = Vector2(38.5185, 54.9136)
+
+[node name="Wind" type="CharacterBody2D"]
+scale = Vector2(1.95313, 1.95313)
+script = ExtResource("1_6gntj")
+
+[node name="WindSprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_y8h1w")
+
+[node name="WindHitbox" type="Area2D" parent="."]
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.888891, 1.38272)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_u7ccn")
+
+[connection signal="area_entered" from="WindHitbox" to="." method="_on_wind_hitbox_area_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

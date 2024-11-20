@@ -1,14 +1,19 @@
-[gd_scene load_steps=7 format=3 uid="uid://coa17qjlk5v8y"]
+[gd_scene load_steps=9 format=3 uid="uid://coa17qjlk5v8y"]
 
 [ext_resource type="Texture2D" uid="uid://dogcjfm7vbtns" path="res://assets/sky1.png" id="1_a8nhx"]
 [ext_resource type="Script" path="res://src/world_manager.gd" id="1_ufc01"]
+[ext_resource type="PackedScene" uid="uid://pgofyu12eh6n" path="res://src/serial_port_controller.tscn" id="2_djxjw"]
 [ext_resource type="Texture2D" uid="uid://dndhys58ejjp1" path="res://assets/long_tree.svg" id="2_qyaja"]
 [ext_resource type="Texture2D" uid="uid://c7c6viexs13cm" path="res://assets/hills/Hills Layer 05.png" id="3_lky7k"]
 [ext_resource type="PackedScene" uid="uid://csioa30rlb4m4" path="res://src/leaf.tscn" id="5_281m6"]
 [ext_resource type="PackedScene" uid="uid://v8ythwy1ykle" path="res://src/obstacle_spawner.tscn" id="6_etdqo"]
+[ext_resource type="PackedScene" uid="uid://b7lv4f1gnoj84" path="res://src/wind_spawner.tscn" id="8_t3i1v"]
 
 [node name="World" type="StaticBody2D"]
 script = ExtResource("1_ufc01")
+
+[node name="SerialPortTest" parent="." instance=ExtResource("2_djxjw")]
+visible = false
 
 [node name="Skybox" type="Sprite2D" parent="."]
 position = Vector2(807, 324)
@@ -58,43 +63,106 @@ scale = Vector2(0.080244, 0.080244)
 visible = true
 position = Vector2(-255, 170)
 spawner_id = 1
+obstacle_direction = "right"
+obstacle_level = "top"
 
 [node name="ObstacleSpawner2" parent="." instance=ExtResource("6_etdqo")]
 visible = true
 position = Vector2(-255, 476)
 spawner_id = 2
+obstacle_direction = "right"
+obstacle_level = "middle"
 
 [node name="ObstacleSpawner3" parent="." instance=ExtResource("6_etdqo")]
 visible = true
 position = Vector2(-255, 782)
 spawner_id = 3
+obstacle_direction = "right"
+obstacle_level = "bottom"
 
 [node name="ObstacleSpawner4" parent="." instance=ExtResource("6_etdqo")]
 visible = true
 position = Vector2(780, 170)
 spawner_id = 4
+obstacle_direction = "center"
+obstacle_level = "top"
 
 [node name="ObstacleSpawner5" parent="." instance=ExtResource("6_etdqo")]
 visible = true
 position = Vector2(780, 476)
 spawner_id = 5
+obstacle_direction = "center"
+obstacle_level = "middle"
 
 [node name="ObstacleSpawner6" parent="." instance=ExtResource("6_etdqo")]
 visible = true
 position = Vector2(780, 782)
 spawner_id = 6
+obstacle_direction = "center"
+obstacle_level = "bottom"
 
 [node name="ObstacleSpawner7" parent="." instance=ExtResource("6_etdqo")]
 visible = true
 position = Vector2(1870, 170)
 spawner_id = 7
+obstacle_direction = "left"
+obstacle_level = "top"
 
 [node name="ObstacleSpawner8" parent="." instance=ExtResource("6_etdqo")]
 visible = true
 position = Vector2(1870, 476)
 spawner_id = 8
+obstacle_direction = "left"
+obstacle_level = "middle"
 
 [node name="ObstacleSpawner9" parent="." instance=ExtResource("6_etdqo")]
 visible = true
 position = Vector2(1870, 782)
 spawner_id = 9
+obstacle_direction = "left"
+obstacle_level = "bottom"
+
+[node name="WindSpawner1" parent="." instance=ExtResource("8_t3i1v")]
+position = Vector2(595, 170)
+spawner_id = 1
+wind_direction = "left"
+
+[node name="WindSpawner2" parent="." instance=ExtResource("8_t3i1v")]
+position = Vector2(595, 476)
+spawner_id = 2
+wind_direction = "left"
+
+[node name="WindSpawner3" parent="." instance=ExtResource("8_t3i1v")]
+position = Vector2(595, 782)
+spawner_id = 3
+wind_direction = "left"
+
+[node name="WindSpawner4" parent="." instance=ExtResource("8_t3i1v")]
+position = Vector2(780, 170)
+spawner_id = 4
+wind_direction = "center"
+
+[node name="WindSpawner5" parent="." instance=ExtResource("8_t3i1v")]
+position = Vector2(780, 476)
+spawner_id = 5
+wind_direction = "center"
+
+[node name="WindSpawner6" parent="." instance=ExtResource("8_t3i1v")]
+position = Vector2(780, 782)
+spawner_id = 6
+wind_direction = "center"
+
+[node name="WindSpawner7" parent="." instance=ExtResource("8_t3i1v")]
+position = Vector2(950, 170)
+spawner_id = 7
+wind_direction = "right"
+
+[node name="WindSpawner8" parent="." instance=ExtResource("8_t3i1v")]
+position = Vector2(950, 476)
+spawner_id = 8
+wind_direction = "right"
+
+[node name="WindSpawner9" parent="." instance=ExtResource("8_t3i1v")]
+position = Vector2(950, 782)
+spawner_id = 9
+wind_direction = "right"

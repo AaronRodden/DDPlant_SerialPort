@@ -1,10 +1,25 @@
 extends Control
 
+var CONTROLLER_POLLING_VALUE = 0.5
+
+var last_controller_poll : String
+signal controller_polled
+
+var regex = RegEx.new()
+
 var serial := SerialPort.new()
-var port := "COM3"
+#var port := "COM3"
+var port := "COM4"
 var baudrate := 9600
 
 var is_hex := false
+
+
+var input_buffer = []
+var max_input_buffer = 10
+
+var history := []
+var maxHistoryEntries := 10
 
 
 ## TODO ## 
@@ -62,21 +77,50 @@ func _ready():
 	update_serial()
 	serial.data_received.connect(_on_data_received)
 	serial.start_monitoring(20000)
-	pass # Replace with function body.
+	
+	serial.open(port)  # NOTE: Added such that port is open right when object is created!
 
 
 func _exit_tree():
 	serial.stop_monitoring()
 
+# Grab the last set of inputs (e.g. conductive mat and FSR values)
+func grab_content_lines():
+	var content_snapshot = %Content.text
+#	var serial_start_index = content_snapshot.find("!") + 1
+#	var serial_end_index = content_snapshot.find("@")
+	regex.compile("\\[(.*?)\\]")
+	var regex_result = regex.search(content_snapshot)
+	if regex_result:
+		return regex_result.get_string()
+#	if result:
+#		print(result.get_string()) # Would print n-0123
+#	if serial_start_index > 0 and serial_end_index > 0:
+#		var serial_message = content_snapshot.substr(serial_start_index, serial_end_index)
+#		return serial_message
+	return null
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	pass  # TODO: Poll controller here or on data recieved?
 #	if serial.available() > 0:
 #		var rec := serial.read_raw(serial.available())
 #		_on_data_received(rec)
 #		pass
-	pass
+	# Every x seconds grab the most recent 2 lines from content? use that as input?
+#	await get_tree().create_timer(CONTROLLER_POLLING_VALUE).timeout 
+#	var last_input = grab_content_lines()
+#	# TODO: Let's do some input verification here as well
+#	if last_input:
+#		controller_polled.emit()
+#		last_controller_poll = last_input
 
+# the most straighforward implementation
+#func add_to_buffer(data):
+#	input_buffer.push_back(data)
+#	while input_buffer.size() > maxHistoryEntries:
+#		input_buffer.pop_front()
+#	print(input_buffer)
 
 func _on_data_received(data: PackedByteArray):
 #	await RenderingServer.frame_post_draw
@@ -85,10 +129,33 @@ func _on_data_received(data: PackedByteArray):
 	if %Content.get_line_count() > 50:
 		%Content.text = ""
 	
-	print("Received[%d]: %s" % [data.size(), data.get_string_from_ascii()])
-	if serial.is_open():
-		serial.write_raw(data)
-
+	var last_input = grab_content_lines()
+	# TODO: Let's do some input verification here as well
+	if last_input:
+		controller_polled.emit()
+		self.last_controller_poll = last_input
+#	if data.get_string_from_ascii().contains("*@*"):
+#		print("Data from ascii: \n")
+#		print(data.get_string_from_ascii())
+#		print("Content text: \n")
+#		print(%Content.text)
+#		pass
+	
+#	if %Content.text.ends_with("*@*"):
+#		print(%Content.text)
+#		print("\n\n")
+#	print(%Content.text)
+#	add_to_buffer(%Content.text)
+	
+#	print("Received[%d]: %s" % [data.size(), data.get_string_from_ascii()])
+#	if serial.is_open():
+#		pass
+#		serial.write_raw(data)
+#		var parsed_data = data.get_string_from_ascii()
+#		var serial_read_data = serial.write_raw(data)
+#		print("Parsed data: " + str(parsed_data))
+#		print("Serial read data: " + str(serial_read_data))
+#		add_to_buffer(parsed_data)
 
 func _on_send_pressed():
 	send_input_content()

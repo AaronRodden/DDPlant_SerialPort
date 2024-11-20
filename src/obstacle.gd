@@ -1,4 +1,4 @@
-extends Sprite2D
+extends CharacterBody2D
 
 
 # TODO: I think these should be replaced by animations at some point 
@@ -20,7 +20,8 @@ func set_obstacle(obstacle_type, obstacle_direction, obstacle_starting_position,
 			texture_path = wasp_path
 		"fox":
 			texture_path = fox_path
-	self.texture = load(texture_path)
+#	self.texture = load(texture_path)
+	$ObstacleSprite.texture = load(texture_path)
 	self.obstacle_direction = obstacle_direction
 	self.starting_position = obstacle_starting_position
 	self.target_position = obstacle_target_position
@@ -43,3 +44,14 @@ func _process(delta):
 		self.position.x -= 5
 	elif self.obstacle_direction == "center":
 		pass # TODO: Growing as a form of coming at the screen
+			
+
+func _physics_process(delta):
+	move_and_slide()
+
+func _on_obstacle_hitbox_area_entered(area):
+	pass # Replace with function body.
+
+
+func _on_visible_on_screen_notifier_2d_screen_exited():
+	queue_free()
