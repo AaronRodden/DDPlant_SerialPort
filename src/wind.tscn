@@ -69,7 +69,6 @@ sprite_frames = SubResource("SpriteFrames_y8h1w")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.888891, 1.38272)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_u7ccn")
 
 [connection signal="area_entered" from="WindHitbox" to="." method="_on_wind_hitbox_area_entered"]

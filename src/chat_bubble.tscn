@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://cdp3te5iyyqb"]
+
+[ext_resource type="Texture2D" uid="uid://bc5gva3aww4jk" path="res://assets/noun-thought-bubble-399494.svg" id="1_r1w23"]
+[ext_resource type="Texture2D" uid="uid://b6lypv8ant1f2" path="res://sun_shiny.png" id="2_c0qxd"]
+[ext_resource type="Script" path="res://src/chat_bubble.gd" id="2_nldu3"]
+[ext_resource type="Texture2D" uid="uid://cbdmkivfk3wph" path="res://assets/weather_icon_set/rainyWeather.png" id="3_sqb2l"]
+
+[node name="ChatBubble" type="Sprite2D"]
+scale = Vector2(6.63, 6.63)
+texture = ExtResource("1_r1w23")
+script = ExtResource("2_nldu3")
+
+[node name="Sun" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(0, -29.7134)
+scale = Vector2(0.195177, 0.195177)
+texture = ExtResource("2_c0qxd")
+
+[node name="Rain" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(0.603318, -31.6742)
+scale = Vector2(0.348199, 0.348199)
+texture = ExtResource("3_sqb2l")
+
+[node name="KindWords" type="Label" parent="."]
+visible = false
+offset_left = -31.825
+offset_top = -39.9698
+offset_right = 30.175
+offset_bottom = -19.9698
+theme_override_font_sizes/font_size = 12
+text = "Keep it up!"

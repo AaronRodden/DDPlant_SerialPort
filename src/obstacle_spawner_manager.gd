@@ -4,7 +4,10 @@ extends Sprite2D
 @export var obstacle_direction = "" # right, left, or center
 @export var obstacle_level = "" # top, middle, bottom
 
-var TARGET_DELTA = Vector2(650,0)
+signal obstacle_spawned
+
+var TARGET_DELTA_X = Vector2(650,0)
+var TARGET_DELTA_Y = Vector2(0, 450)
 
 var Obstacle = preload("res://src/obstacle.tscn")
 
@@ -17,25 +20,31 @@ func _ready():
 	match obstacle_level:
 		"top": 
 			if obstacle_direction == "right":
-				create_obstacle("cloud", TARGET_DELTA)
+				create_obstacle("cloud", TARGET_DELTA_X)
 			elif obstacle_direction == "left":
-				create_obstacle("cloud", TARGET_DELTA * -1)
-			else: 
-				create_obstacle("cloud", self.position)
+				create_obstacle("cloud", TARGET_DELTA_X * -1)
+			elif obstacle_direction == "up":
+				create_obstacle("cloud", TARGET_DELTA_Y * -1)
+			elif obstacle_direction == "down":
+				create_obstacle("cloud", TARGET_DELTA_Y)
 		"middle":
 			if obstacle_direction == "right":
-				create_obstacle("wasp", TARGET_DELTA)
+				create_obstacle("wasp", TARGET_DELTA_X)
 			elif obstacle_direction == "left":
-				create_obstacle("wasp", TARGET_DELTA * -1)
-			else: 
-				create_obstacle("wasp", self.position)
+				create_obstacle("wasp", TARGET_DELTA_X * -1)
+			elif obstacle_direction == "up":
+				create_obstacle("wasp", TARGET_DELTA_Y * -1)
+			elif obstacle_direction == "down":
+				create_obstacle("wasp", TARGET_DELTA_Y)
 		"bottom":
 			if obstacle_direction == "right":
-				create_obstacle("fox", TARGET_DELTA)
+				create_obstacle("fox", TARGET_DELTA_X)
 			elif obstacle_direction == "left":
-				create_obstacle("fox", TARGET_DELTA * -1)
-			else: 
-				create_obstacle("fox", self.position)
+				create_obstacle("fox", TARGET_DELTA_X * -1)
+			elif obstacle_direction == "up":
+				create_obstacle("fox", TARGET_DELTA_Y * -1)
+			elif obstacle_direction == "down":
+				create_obstacle("fox", TARGET_DELTA_Y)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -45,3 +54,4 @@ func create_obstacle(obstacle_type, target_pos):
 	var new_obstacle = Obstacle.instantiate()
 	new_obstacle.set_obstacle(obstacle_type, self.obstacle_direction, self.position, target_pos)
 	add_child(new_obstacle)
+	obstacle_spawned.emit()

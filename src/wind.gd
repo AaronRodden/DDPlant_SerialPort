@@ -18,8 +18,10 @@ func _process(delta):
 		self.position.x += 5
 	elif self.obstacle_direction == "left":
 		self.position.x -= 5
-	elif self.obstacle_direction == "center":
-		pass # TODO: Growing as a form of coming at the screen
+	elif self.obstacle_direction == "up":
+		self.position.y -= 5
+	elif self.obstacle_direction == "down":
+		self.position.y += 5
 
 func _physics_process(delta):
 	pass
