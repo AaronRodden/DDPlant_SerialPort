@@ -2,6 +2,8 @@ extends Sprite2D
 
 var rng = RandomNumberGenerator.new()
 
+var current_desire
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -9,33 +11,34 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	if Global.obstacle_count == 0 and Global.world_health <= 70:
+		if current_desire:
+			pass
+		else: 
+			pick_desire()
 	
-func hide_chat_bubble():
-	self.visible = false
-	
-func show_chat_bubble():
-	$ChatBubble.visible = true
-	
-func hide_desire():
-	pass
 
 # TODO: Make the strings into constants?
 func pick_desire():
 #	TODO: Add more desires
-	self.visible = true
+	$ThoughtBubble.visible = true
 	var desire_enum_value = rng.randi_range(1,3)
 	match desire_enum_value:
 		1:
 			$Sun.visible = true
-			return "Sun"
+			current_desire = "Sun"
 		2:
 			$Rain.visible = true
-			return "Rain"
+			current_desire = "Rain"
 		3:
 			$KindWords.visible = true
-			return "KindWords"
-			
+			current_desire = "KindWords"
+
+func send_desire(provided_desire):
+	if provided_desire == current_desire:
+			provide_desire(provided_desire)
+			Global.world_health += 20
+
 func provide_desire(given_desire):
 	match given_desire:
 		"Sun":
@@ -44,3 +47,17 @@ func provide_desire(given_desire):
 			$Rain.visible = false
 		"KindWords":
 			$KindWords.visible = false
+			
+	$ThoughtBubble.visible = false
+	$ExcitmentAnimation.visible = true
+	$ExcitmentAnimation.play()
+	await get_tree().create_timer(2).timeout
+	$ExcitmentAnimation.visible = false
+	if Global.world_health <= 70:
+		pick_desire()
+	else:
+		current_desire = null
+		$ThoughtBubble.visible = false
+		$Smile.visible = true
+		await get_tree().create_timer(2).timeout
+		$Smile.visible = false

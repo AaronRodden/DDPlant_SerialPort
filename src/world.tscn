@@ -159,14 +159,6 @@ spawner_id = 4
 wind_direction = "right"
 
 [node name="ChatBubble" parent="." instance=ExtResource("9_5d0mo")]
-visible = false
 position = Vector2(875, 243)
 rotation = 0.359538
 scale = Vector2(3.6197, 3.6197)
-
-[connection signal="obstacle_spawned" from="ObstacleSpawner2" to="." method="_on_obstacle_spawner_2_obstacle_spawned"]
-[connection signal="obstacle_spawned" from="ObstacleSpawner3" to="." method="_on_obstacle_spawner_3_obstacle_spawned"]
-[connection signal="obstacle_spawned" from="ObstacleSpawner5" to="." method="_on_obstacle_spawner_5_obstacle_spawned"]
-[connection signal="obstacle_spawned" from="ObstacleSpawner6" to="." method="_on_obstacle_spawner_6_obstacle_spawned"]
-[connection signal="obstacle_spawned" from="ObstacleSpawner8" to="." method="_on_obstacle_spawner_8_obstacle_spawned"]
-[connection signal="obstacle_spawned" from="ObstacleSpawner9" to="." method="_on_obstacle_spawner_9_obstacle_spawned"]

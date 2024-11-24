@@ -1,14 +1,63 @@
-[gd_scene load_steps=5 format=3 uid="uid://cdp3te5iyyqb"]
+[gd_scene load_steps=13 format=3 uid="uid://cdp3te5iyyqb"]
 
 [ext_resource type="Texture2D" uid="uid://bc5gva3aww4jk" path="res://assets/noun-thought-bubble-399494.svg" id="1_r1w23"]
 [ext_resource type="Texture2D" uid="uid://b6lypv8ant1f2" path="res://sun_shiny.png" id="2_c0qxd"]
 [ext_resource type="Script" path="res://src/chat_bubble.gd" id="2_nldu3"]
 [ext_resource type="Texture2D" uid="uid://cbdmkivfk3wph" path="res://assets/weather_icon_set/rainyWeather.png" id="3_sqb2l"]
+[ext_resource type="Texture2D" uid="uid://c7ujfbntmax7h" path="res://assets/surprise.png" id="5_5eo46"]
+[ext_resource type="Texture2D" uid="uid://xwj5dvjv0368" path="res://assets/mikulka-smile-cool.png" id="6_fu4vw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kcqn3"]
+atlas = ExtResource("5_5eo46")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qrtxg"]
+atlas = ExtResource("5_5eo46")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ycuvf"]
+atlas = ExtResource("5_5eo46")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kdfwl"]
+atlas = ExtResource("5_5eo46")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5bxtf"]
+atlas = ExtResource("5_5eo46")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kk1xf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kcqn3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qrtxg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ycuvf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kdfwl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5bxtf")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="ChatBubble" type="Sprite2D"]
 scale = Vector2(6.63, 6.63)
-texture = ExtResource("1_r1w23")
 script = ExtResource("2_nldu3")
+
+[node name="ThoughtBubble" type="Sprite2D" parent="."]
+visible = false
+scale = Vector2(1, 1)
+texture = ExtResource("1_r1w23")
 
 [node name="Sun" type="Sprite2D" parent="."]
 visible = false
@@ -30,3 +79,16 @@ offset_right = 30.175
 offset_bottom = -19.9698
 theme_override_font_sizes/font_size = 12
 text = "Keep it up!"
+
+[node name="ExcitmentAnimation" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(0.150829, -24.5852)
+scale = Vector2(3.78054, 3.78054)
+sprite_frames = SubResource("SpriteFrames_kk1xf")
+frame_progress = 0.438267
+
+[node name="Smile" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(0.904977, -9.35143)
+scale = Vector2(1.87632, 1.87632)
+texture = ExtResource("6_fu4vw")

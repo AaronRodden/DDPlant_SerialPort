@@ -1,7 +1,6 @@
 extends CharacterBody2D
 
 var obstacle_direction : String
-# TODO: Pretty simple, have a hurtbox that interacts with obstacles, dissapear when off screen
 
 func set_wind(obstacle_direction):
 	self.obstacle_direction = obstacle_direction
@@ -25,7 +24,6 @@ func _process(delta):
 
 func _physics_process(delta):
 	pass
-#	move_and_slide()
 
 func _on_visible_on_screen_notifier_2d_screen_exited():
 	queue_free() # If off screne, destroy object

@@ -7,14 +7,8 @@ var WIND_BUFFER_TIME = 2
 
 var Wind = preload("res://src/wind.tscn")
 
-
-# TODO: Pretty similar to the obstacle spawner, use ID's to know which direction to shoot the wind
-# Should there be a manager that is a middle man to this for controls or should world just interact directly?
-
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	## NOTE: I am hardcoding this because we have one week to get this done yay!
 	pass
 
 

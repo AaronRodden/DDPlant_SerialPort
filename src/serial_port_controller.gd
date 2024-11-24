@@ -21,19 +21,6 @@ var max_input_buffer = 10
 var history := []
 var maxHistoryEntries := 10
 
-
-## TODO ## 
-## This script will act as the communication / contact point from serial communication to game logic
-## Essentially it should know all game systems that it needs to send serial data (controller data) too)
-## Question:
-## Should raw input logic (e.g. value is over a threshold we want) be here or in managers?
-## Input:
-## 1. "Wind" / "Shooing" system 
-## 2. Plant Call / Response system
-##
-## Output:
-## 1. Game State -> Physical plant changes
-
 func send_input_content():
 	if serial.is_open():
 		if is_hex:
@@ -87,17 +74,10 @@ func _exit_tree():
 # Grab the last set of inputs (e.g. conductive mat and FSR values)
 func grab_content_lines():
 	var content_snapshot = %Content.text
-#	var serial_start_index = content_snapshot.find("!") + 1
-#	var serial_end_index = content_snapshot.find("@")
 	regex.compile("\\[(.*?)\\]")
 	var regex_result = regex.search(content_snapshot)
 	if regex_result:
 		return regex_result.get_string()
-#	if result:
-#		print(result.get_string()) # Would print n-0123
-#	if serial_start_index > 0 and serial_end_index > 0:
-#		var serial_message = content_snapshot.substr(serial_start_index, serial_end_index)
-#		return serial_message
 	return null
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -107,20 +87,7 @@ func _process(delta):
 #		var rec := serial.read_raw(serial.available())
 #		_on_data_received(rec)
 #		pass
-	# Every x seconds grab the most recent 2 lines from content? use that as input?
-#	await get_tree().create_timer(CONTROLLER_POLLING_VALUE).timeout 
-#	var last_input = grab_content_lines()
-#	# TODO: Let's do some input verification here as well
-#	if last_input:
-#		controller_polled.emit()
-#		last_controller_poll = last_input
 
-# the most straighforward implementation
-#func add_to_buffer(data):
-#	input_buffer.push_back(data)
-#	while input_buffer.size() > maxHistoryEntries:
-#		input_buffer.pop_front()
-#	print(input_buffer)
 
 func _on_data_received(data: PackedByteArray):
 #	await RenderingServer.frame_post_draw
@@ -134,22 +101,9 @@ func _on_data_received(data: PackedByteArray):
 	if last_input:
 		controller_polled.emit()
 		self.last_controller_poll = last_input
-#	if data.get_string_from_ascii().contains("*@*"):
-#		print("Data from ascii: \n")
-#		print(data.get_string_from_ascii())
-#		print("Content text: \n")
-#		print(%Content.text)
-#		pass
-	
-#	if %Content.text.ends_with("*@*"):
-#		print(%Content.text)
-#		print("\n\n")
-#	print(%Content.text)
-#	add_to_buffer(%Content.text)
-	
+
 #	print("Received[%d]: %s" % [data.size(), data.get_string_from_ascii()])
 #	if serial.is_open():
-#		pass
 #		serial.write_raw(data)
 #		var parsed_data = data.get_string_from_ascii()
 #		var serial_read_data = serial.write_raw(data)

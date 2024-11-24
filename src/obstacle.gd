@@ -61,3 +61,4 @@ func _on_obstacle_hitbox_area_entered(area):
 
 func _on_visible_on_screen_notifier_2d_screen_exited():
 	queue_free()
+	Global.obstacle_count -= 1
