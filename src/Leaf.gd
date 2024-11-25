@@ -12,6 +12,8 @@ var orangeleaf_animation_path = preload("res://animations/orange_leaf_animation.
 var greenleaf_animation_path = preload("res://animations/green_leaf_animation.tscn")
 var bendleaf_white_animation_path = preload("res://animations/bend_leaf_animation.tscn")
 
+var rng = RandomNumberGenerator.new()
+
 var texture_path = ""
 
 # Leaf constructor
@@ -31,8 +33,9 @@ func new_leaf(leaf_enum_value, leaf_position, leaf_rotation):
 #			new_leaf.texture_path = bendleaf_white_path
 #			new_leaf.animation = load(bendleaf_white_animation_path)
 			new_leaf = bendleaf_white_animation_path.instantiate()
-	new_leaf.scale.x = 0.235
-	new_leaf.scale.y = 0.235
+	var rand_scale = rng.randf_range(0.13, 0.18)
+	new_leaf.scale.x = rand_scale
+	new_leaf.scale.y = rand_scale
 	new_leaf.position = leaf_position
 	new_leaf.rotation = leaf_rotation
 	return new_leaf
@@ -40,8 +43,8 @@ func new_leaf(leaf_enum_value, leaf_position, leaf_rotation):
 # Called when the node enters the scene tree for the first time.
 func _ready():
 #	self.texture = load(texture_path)
-	self.scale.x = 0.235 # TODO: Scale magic number here...
-	self.scale.y = 0.235 # TODO: Scale magic number here...
+	self.scale.x = 0.15 # TODO: Scale magic number here...
+	self.scale.y = 0.15 # TODO: Scale magic number here...
 	self.visible = true
 
 

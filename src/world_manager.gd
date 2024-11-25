@@ -59,7 +59,7 @@ func process_inputs(inputs):
 	if inputs["CS6"] > 0: 
 		$WindSpawner6.create_wind()
 
-	# TODO: Will some calibration need to be done here?
+	# TODO: Be ready to change these according to the used sensors!
 	if inputs["FS0"] > 50:
 		provided_desire = "Sun"
 	if inputs["FS1"] > 50:
@@ -70,18 +70,13 @@ func process_inputs(inputs):
 		provided_desire = "Pollenation"
 	if inputs["FS4"] > 50:
 		provided_desire = "Fertalizer"
-	# TODO: This logic here is for MVP, mess around with where this check is / point values?
 	if provided_desire.length() > 0:
 		$ChatBubble.send_desire(provided_desire)
-#		if provided_desire == current_desire:
-#			$ChatBubble.provide_desire(provided_desire)
-#			current_desire = null
-#			Global.world_health += 20
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	# Debug: Faked user input
-	var debug_contoller_poll = "[CS1:0, CS2:0, CS3:0, CS4:0, CS5:0, CS6:0, FS0:0, FS1:0, FS2:0, FS3:0, FS4:0]"
+	var debug_contoller_poll = null
 	# Capacitive sensor debug inputs
 	if Input.is_action_just_pressed("CS1"):
 		debug_contoller_poll = "[CS1:1, CS2:0, CS3:0, CS4:0, CS5:0, CS6:0, FS0:0, FS1:0, FS2:0, FS3:0, FS4:0]"
@@ -106,8 +101,8 @@ func _process(delta):
 		debug_contoller_poll = "[CS1:0, CS2:0, CS3:0, CS4:0, CS5:0, CS6:0, FS0:0, FS1:0, FS2:0, FS3:200, FS4:0]"
 	if Input.is_action_just_pressed("FS4"):
 		debug_contoller_poll = "[CS1:0, CS2:0, CS3:0, CS4:0, CS5:0, CS6:0, FS0:0, FS1:0, FS2:0, FS3:0, FS4:200]"
-	var inputs = parse_controller_poll(debug_contoller_poll)
-	process_inputs(inputs)
+#	var inputs = parse_controller_poll(debug_contoller_poll)
+#	process_inputs(inputs)
 
 	# Debug: Wizard of Oz individual inputs
 #	if Input.is_action_just_pressed("spawn1"):
@@ -126,10 +121,15 @@ func _process(delta):
 	if Input.is_action_just_pressed("motion_sensor_oz"):
 		motion_detected_oz()
 	
-	# 
-#	var inputs = parse_controller_poll($SerialPortTest.last_controller_poll)
-#	print(inputs)
-#	process_inputs(inputs)
+	# Demo Mode!
+	
+	if debug_contoller_poll:
+		var inputs = parse_controller_poll(debug_contoller_poll)
+		process_inputs(inputs)
+	else:
+		var inputs = parse_controller_poll($SerialPortTest.last_controller_poll)
+		print(inputs)
+		process_inputs(inputs)
 	
 	# Debug: Global variable output
 	print("World Health: " + str(Global.world_health))
@@ -139,7 +139,8 @@ func grow_leaves():
 	var rng_leaf_enum_value = rng.randi_range(1, 4)
 	for node in self.get_children():
 		if node.name.contains("Leaf"):
-			var new_leaf = node.new_leaf(rng_leaf_enum_value, node.position, node.rotation)
+			# TODO: Pick a certain leaf?
+			var new_leaf = node.new_leaf(2, node.position, node.rotation)
 			add_child(new_leaf)
 			
 			

@@ -11,7 +11,9 @@ scale = Vector2(0.234874, 0.234874)
 script = ExtResource("2_mfe5e")
 
 [node name="LeafHurtbox" type="Area2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LeafHurtbox"]
+visible = false
 position = Vector2(-1.75768, 28.3677)
 shape = SubResource("RectangleShape2D_sr8ub")

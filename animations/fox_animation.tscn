@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://dash3hrxslbmp"]
+
+[ext_resource type="Texture2D" uid="uid://4l7meh0xsavc" path="res://assets/mrfoxy_spritesheet.png" id="1_g3q3e"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fyxkc"]
+atlas = ExtResource("1_g3q3e")
+region = Rect2(426, 0, 426, 426)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_if4pc"]
+atlas = ExtResource("1_g3q3e")
+region = Rect2(0, 0, 426, 426)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8qtwp"]
+atlas = ExtResource("1_g3q3e")
+region = Rect2(852, 0, 426, 426)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0ocl3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fyxkc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_if4pc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fyxkc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8qtwp")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="FoxAnimation" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_0ocl3")
+autoplay = "default"

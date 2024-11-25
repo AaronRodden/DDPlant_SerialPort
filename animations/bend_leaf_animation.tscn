@@ -31,7 +31,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
-"speed": 5.0
+"speed": 1.0
 }]
 
 [node name="BendLeafAnimation" type="AnimatedSprite2D"]

@@ -6,6 +6,9 @@ var cloud_path = "res://assets/weather_icon_set/cloudyWeather.png"
 var wasp_path = "res://assets/wasp_frames/wasp1_00000.png"
 var fox_path = "res://assets/isometric_snake/iso-snake-yellow 1.png"
 
+#var bee_ = preload("res://animations/maple_leaf_animation.tscn")
+var fox_animation_path = preload("res://animations/fox_animation.tscn")
+
 var texture_path : String
 var obstacle_direction : String
 var starting_position : Vector2
@@ -17,14 +20,17 @@ func set_obstacle(obstacle_type, obstacle_direction, obstacle_starting_position,
 		"cloud":
 			texture_path = cloud_path
 		"wasp":
-			texture_path = wasp_path
+#			texture_path = wasp_path
+			$BeeAnimation.visible = true
 		"fox":
-			texture_path = fox_path
+#			texture_path = fox_path
+			$FoxAnimation.visible = true
 #	self.texture = load(texture_path)
-	$ObstacleSprite.texture = load(texture_path)
+#	$ObstacleSprite.texture = load(texture_path)
 	self.obstacle_direction = obstacle_direction
 	self.starting_position = obstacle_starting_position
 	self.target_position = obstacle_target_position
+	self.z_index = 1
 	self.visible = true
 
 # Called when the node enters the scene tree for the first time.

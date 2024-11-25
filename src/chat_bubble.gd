@@ -31,7 +31,7 @@ func pick_desire():
 			$Rain.visible = true
 			current_desire = "Rain"
 		3:
-			$KindWords.visible = true
+			$Frown.visible = true
 			current_desire = "KindWords"
 
 func send_desire(provided_desire):
@@ -40,13 +40,14 @@ func send_desire(provided_desire):
 			Global.world_health += 20
 
 func provide_desire(given_desire):
+	$ThoughtBubble.visible = true
 	match given_desire:
 		"Sun":
 			$Sun.visible = false
 		"Rain":
 			$Rain.visible = false
 		"KindWords":
-			$KindWords.visible = false
+			$Frown.visible = false
 			
 	$ThoughtBubble.visible = false
 	$ExcitmentAnimation.visible = true

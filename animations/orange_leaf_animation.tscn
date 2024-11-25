@@ -31,9 +31,10 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
-"speed": 5.0
+"speed": 1.0
 }]
 
 [node name="OrangeLeafAnimation" type="AnimatedSprite2D"]
+modulate = Color(0, 0.870588, 0.694118, 1)
 sprite_frames = SubResource("SpriteFrames_0dj17")
 autoplay = "default"

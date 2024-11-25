@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=3 uid="uid://dg3pwlnldnxvg"]
+
+[ext_resource type="Texture2D" uid="uid://ibkybu3tie4i" path="res://assets/mrbee_spritesheet.png" id="1_ep8y3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gq68s"]
+atlas = ExtResource("1_ep8y3")
+region = Rect2(426, 0, 426, 426)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kcxgv"]
+atlas = ExtResource("1_ep8y3")
+region = Rect2(0, 0, 426, 426)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a8paa"]
+atlas = ExtResource("1_ep8y3")
+region = Rect2(852, 0, 426, 426)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bv3x0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gq68s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kcxgv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gq68s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a8paa")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="BeeAnimation" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_bv3x0")
+autoplay = "default"
+frame = 1
+frame_progress = 0.485754

@@ -3,8 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://dogcjfm7vbtns" path="res://assets/sky1.png" id="1_a8nhx"]
 [ext_resource type="Script" path="res://src/world_manager.gd" id="1_ufc01"]
 [ext_resource type="PackedScene" uid="uid://pgofyu12eh6n" path="res://src/serial_port_controller.tscn" id="2_djxjw"]
-[ext_resource type="Texture2D" uid="uid://dndhys58ejjp1" path="res://assets/long_tree.svg" id="2_qyaja"]
 [ext_resource type="Texture2D" uid="uid://c7c6viexs13cm" path="res://assets/hills/Hills Layer 05.png" id="3_lky7k"]
+[ext_resource type="Texture2D" uid="uid://b2b3y8puke6ms" path="res://assets/long_tree_more_branches.svg" id="4_qgx7n"]
 [ext_resource type="PackedScene" uid="uid://csioa30rlb4m4" path="res://src/leaf.tscn" id="5_281m6"]
 [ext_resource type="PackedScene" uid="uid://v8ythwy1ykle" path="res://src/obstacle_spawner.tscn" id="6_etdqo"]
 [ext_resource type="PackedScene" uid="uid://b7lv4f1gnoj84" path="res://src/wind_spawner.tscn" id="8_t3i1v"]
@@ -23,7 +23,7 @@ texture = ExtResource("1_a8nhx")
 [node name="Tree" type="Sprite2D" parent="."]
 position = Vector2(780, 515)
 scale = Vector2(2.50582, 2.50582)
-texture = ExtResource("2_qyaja")
+texture = ExtResource("4_qgx7n")
 
 [node name="Floor" type="Sprite2D" parent="."]
 position = Vector2(761, 81)
@@ -31,29 +31,184 @@ scale = Vector2(6.60547, 6.60547)
 texture = ExtResource("3_lky7k")
 
 [node name="Leaf" parent="." instance=ExtResource("5_281m6")]
-position = Vector2(748, 171)
-rotation = 1.5708
-scale = Vector2(0.080244, 0.080244)
+position = Vector2(732.913, 174.314)
+rotation = 1.57079
+scale = Vector2(0.15, 0.15)
 
 [node name="Leaf2" parent="." instance=ExtResource("5_281m6")]
-position = Vector2(735, 423)
-rotation = 1.5708
-scale = Vector2(0.080244, 0.080244)
+position = Vector2(749.913, 171.314)
+rotation = 2.52898
+scale = Vector2(0.15, 0.15)
 
 [node name="Leaf3" parent="." instance=ExtResource("5_281m6")]
-position = Vector2(733, 574)
-rotation = 1.5708
-scale = Vector2(0.080244, 0.080244)
+position = Vector2(716.644, 588.879)
+rotation = 1.01927
+scale = Vector2(0.15, 0.15)
 
 [node name="Leaf4" parent="." instance=ExtResource("5_281m6")]
-position = Vector2(806, 304)
+position = Vector2(790.426, 403.426)
 rotation = 3.05433
-scale = Vector2(0.080244, 0.080244)
+scale = Vector2(0.15, 0.15)
 
-[node name="Leaf5" parent="." instance=ExtResource("5_281m6")]
-position = Vector2(827, 486)
+[node name="Leaf6" parent="." instance=ExtResource("5_281m6")]
+position = Vector2(822, 525)
 rotation = 3.00546
-scale = Vector2(0.080244, 0.080244)
+scale = Vector2(0.15, 0.15)
+
+[node name="Leaf10" parent="." instance=ExtResource("5_281m6")]
+position = Vector2(787.426, 365.426)
+rotation = 3.05433
+scale = Vector2(0.15, 0.15)
+
+[node name="Leaf11" parent="." instance=ExtResource("5_281m6")]
+position = Vector2(888, 262)
+rotation = -2.60927
+scale = Vector2(0.15, 0.15)
+
+[node name="Leaf12" parent="." instance=ExtResource("5_281m6")]
+position = Vector2(877, 234)
+rotation = 2.95659
+scale = Vector2(0.15, 0.15)
+
+[node name="Leaf16" parent="." instance=ExtResource("5_281m6")]
+position = Vector2(840, 280)
+rotation = 2.88503
+scale = Vector2(0.122043, 0.122043)
+
+[node name="Leaf17" parent="." instance=ExtResource("5_281m6")]
+position = Vector2(821.16, 327.16)
+rotation = -2.60927
+scale = Vector2(0.15, 0.15)
+
+[node name="Leaf18" parent="." instance=ExtResource("5_281m6")]
+position = Vector2(808.16, 305.16)
+rotation = 2.95659
+scale = Vector2(0.15, 0.15)
+
+[node name="Leaf21" parent="." instance=ExtResource("5_281m6")]
+position = Vector2(780, 224)
+rotation = 2.95659
+scale = Vector2(0.116234, 0.116234)
+
+[node name="Leaf22" parent="." instance=ExtResource("5_281m6")]
+position = Vector2(736, 219)
+rotation = 1.57079
+scale = Vector2(0.129488, 0.129488)
+
+[node name="Leaf23" parent="." instance=ExtResource("5_281m6")]
+position = Vector2(777, 248)
+rotation = 2.95659
+scale = Vector2(0.129974, 0.129974)
+
+[node name="Leaf25" parent="." instance=ExtResource("5_281m6")]
+position = Vector2(780.7, 294.16)
+rotation = 2.95659
+scale = Vector2(0.15, 0.15)
+
+[node name="Leaf26" parent="." instance=ExtResource("5_281m6")]
+position = Vector2(736.7, 294.16)
+rotation = 1.57079
+scale = Vector2(0.15, 0.15)
+
+[node name="Leaf27" parent="." instance=ExtResource("5_281m6")]
+position = Vector2(820.472, 616.472)
+rotation = 2.95659
+scale = Vector2(0.15, 0.15)
+
+[node name="Leaf28" parent="." instance=ExtResource("5_281m6")]
+position = Vector2(788.472, 609.472)
+rotation = 2.02807
+scale = Vector2(0.15, 0.15)
+
+[node name="Leaf31" parent="." instance=ExtResource("5_281m6")]
+position = Vector2(759.569, 355.784)
+rotation = 2.23926
+scale = Vector2(0.15, 0.15)
+
+[node name="Leaf32" parent="." instance=ExtResource("5_281m6")]
+position = Vector2(729.569, 374.784)
+rotation = 1.21126
+scale = Vector2(0.15, 0.15)
+
+[node name="Leaf35" parent="." instance=ExtResource("5_281m6")]
+position = Vector2(703, 312)
+rotation = 1.87972
+scale = Vector2(0.15, 0.15)
+
+[node name="Leaf36" parent="." instance=ExtResource("5_281m6")]
+position = Vector2(680, 347)
+rotation = 0.612611
+scale = Vector2(0.15, 0.15)
+
+[node name="Leaf37" parent="." instance=ExtResource("5_281m6")]
+position = Vector2(712.7, 423.16)
+rotation = 2.95659
+scale = Vector2(0.15, 0.15)
+
+[node name="Leaf38" parent="." instance=ExtResource("5_281m6")]
+position = Vector2(668.7, 423.16)
+rotation = 1.57079
+scale = Vector2(0.15, 0.15)
+
+[node name="Leaf39" parent="." instance=ExtResource("5_281m6")]
+position = Vector2(745.7, 437.16)
+rotation = 2.95659
+scale = Vector2(0.15, 0.15)
+
+[node name="Leaf40" parent="." instance=ExtResource("5_281m6")]
+position = Vector2(701.7, 437.16)
+rotation = 1.57079
+scale = Vector2(0.15, 0.15)
+
+[node name="Leaf41" parent="." instance=ExtResource("5_281m6")]
+position = Vector2(814.7, 457.16)
+rotation = 2.95659
+scale = Vector2(0.15, 0.15)
+
+[node name="Leaf42" parent="." instance=ExtResource("5_281m6")]
+position = Vector2(770.7, 457.16)
+rotation = 1.57079
+scale = Vector2(0.15, 0.15)
+
+[node name="Leaf43" parent="." instance=ExtResource("5_281m6")]
+position = Vector2(773.526, 494.526)
+rotation = 3.00546
+scale = Vector2(0.15, 0.15)
+
+[node name="Leaf44" parent="." instance=ExtResource("5_281m6")]
+position = Vector2(736.526, 491.526)
+rotation = 1.40499
+scale = Vector2(0.15, 0.15)
+
+[node name="Leaf45" parent="." instance=ExtResource("5_281m6")]
+position = Vector2(738.526, 531.526)
+rotation = -0.10472
+scale = Vector2(0.15, 0.15)
+
+[node name="Leaf46" parent="." instance=ExtResource("5_281m6")]
+position = Vector2(781.526, 529.526)
+rotation = -1.72788
+scale = Vector2(0.15, 0.15)
+
+[node name="Leaf47" parent="." instance=ExtResource("5_281m6")]
+position = Vector2(694.569, 521.784)
+rotation = 2.23926
+scale = Vector2(0.15, 0.15)
+
+[node name="Leaf48" parent="." instance=ExtResource("5_281m6")]
+position = Vector2(664.569, 540.784)
+rotation = 1.21126
+scale = Vector2(0.15, 0.15)
+
+[node name="Leaf49" parent="." instance=ExtResource("5_281m6")]
+position = Vector2(771.619, 572.019)
+rotation = 2.95659
+scale = Vector2(0.15, 0.15)
+
+[node name="Leaf50" parent="." instance=ExtResource("5_281m6")]
+position = Vector2(725.619, 569.019)
+rotation = 1.57079
+scale = Vector2(0.15, 0.15)
 
 [node name="ObstacleSpawner1" parent="." instance=ExtResource("6_etdqo")]
 visible = true
@@ -154,46 +309,7 @@ spawner_id = 4
 wind_direction = "right"
 
 [node name="ChatBubble" parent="." instance=ExtResource("9_5d0mo")]
+z_index = 1
 position = Vector2(875, 243)
 rotation = 0.359538
 scale = Vector2(3.6197, 3.6197)
-
-[node name="Leaf6" parent="." instance=ExtResource("5_281m6")]
-position = Vector2(809, 539)
-rotation = 3.00546
-scale = Vector2(0.080244, 0.080244)
-
-[node name="Leaf7" parent="." instance=ExtResource("5_281m6")]
-position = Vector2(808, 465)
-rotation = 3.00546
-scale = Vector2(0.080244, 0.080244)
-
-[node name="Leaf8" parent="." instance=ExtResource("5_281m6")]
-position = Vector2(813, 507)
-rotation = 3.00546
-scale = Vector2(0.080244, 0.080244)
-
-[node name="Leaf9" parent="." instance=ExtResource("5_281m6")]
-position = Vector2(829, 506)
-rotation = 3.00546
-scale = Vector2(0.080244, 0.080244)
-
-[node name="Leaf10" parent="." instance=ExtResource("5_281m6")]
-position = Vector2(810, 341)
-rotation = 3.05433
-scale = Vector2(0.080244, 0.080244)
-
-[node name="Leaf11" parent="." instance=ExtResource("5_281m6")]
-position = Vector2(802, 276)
-rotation = 3.05433
-scale = Vector2(0.080244, 0.080244)
-
-[node name="Leaf12" parent="." instance=ExtResource("5_281m6")]
-position = Vector2(826, 310)
-rotation = 3.05433
-scale = Vector2(0.080244, 0.080244)
-
-[node name="Leaf13" parent="." instance=ExtResource("5_281m6")]
-position = Vector2(808, 359)
-rotation = 3.05433
-scale = Vector2(0.080244, 0.080244)

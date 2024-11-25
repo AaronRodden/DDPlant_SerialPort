@@ -1,6 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://7l6gtkusjaqg"]
+[gd_scene load_steps=5 format=3 uid="uid://7l6gtkusjaqg"]
 
 [ext_resource type="Script" path="res://src/obstacle.gd" id="2_6q4kj"]
+[ext_resource type="PackedScene" uid="uid://dg3pwlnldnxvg" path="res://animations/bee_animation.tscn" id="2_kjoeb"]
+[ext_resource type="PackedScene" uid="uid://dash3hrxslbmp" path="res://animations/fox_animation.tscn" id="3_wox3r"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_amavf"]
 size = Vector2(103.54, 79.469)
@@ -9,6 +11,17 @@ size = Vector2(103.54, 79.469)
 script = ExtResource("2_6q4kj")
 
 [node name="ObstacleSprite" type="Sprite2D" parent="."]
+visible = false
+
+[node name="BeeAnimation" parent="." instance=ExtResource("2_kjoeb")]
+visible = false
+position = Vector2(-9.12501, 21.125)
+scale = Vector2(0.244718, 0.244718)
+
+[node name="FoxAnimation" parent="." instance=ExtResource("3_wox3r")]
+visible = false
+position = Vector2(0, 13)
+scale = Vector2(0.328638, 0.328638)
 
 [node name="ObstacleHitbox" type="Area2D" parent="."]
 
