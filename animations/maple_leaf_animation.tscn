@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://dgsgeu6tr7sxq"]
+
+[ext_resource type="Texture2D" uid="uid://b85l1csao0uj3" path="res://assets/mapleleaf_spritesheet.png" id="1_ptxdu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tm1cu"]
+atlas = ExtResource("1_ptxdu")
+region = Rect2(0, 0, 523, 596)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h7rrv"]
+atlas = ExtResource("1_ptxdu")
+region = Rect2(523, 0, 523, 596)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h0fbe"]
+atlas = ExtResource("1_ptxdu")
+region = Rect2(1046, 0, 523, 596)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kbvq4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tm1cu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h7rrv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tm1cu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h0fbe")
+}],
+"loop": true,
+"name": &"default",
+"speed": 1.0
+}]
+
+[node name="MapleLeafAnimation" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_kbvq4")
+autoplay = "default"

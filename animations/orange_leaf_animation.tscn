@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://bh7785m13hscd"]
+
+[ext_resource type="Texture2D" uid="uid://fcb2vufr1kk7" path="res://assets/orangeleaf_spritesheet.png" id="1_e46cu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_08l8t"]
+atlas = ExtResource("1_e46cu")
+region = Rect2(0, 0, 487, 519)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eeq7h"]
+atlas = ExtResource("1_e46cu")
+region = Rect2(487, 0, 487, 519)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g8ch2"]
+atlas = ExtResource("1_e46cu")
+region = Rect2(974, 0, 487, 519)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0dj17"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_08l8t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eeq7h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_08l8t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g8ch2")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="OrangeLeafAnimation" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_0dj17")
+autoplay = "default"

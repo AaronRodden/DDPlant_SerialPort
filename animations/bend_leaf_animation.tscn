@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://cgg8xbye76qnb"]
+
+[ext_resource type="Texture2D" uid="uid://bpkydqb3onup7" path="res://assets/bendleaf_spritesheet.png" id="1_o84yv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bohpd"]
+atlas = ExtResource("1_o84yv")
+region = Rect2(0, 0, 484, 517)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_644g2"]
+atlas = ExtResource("1_o84yv")
+region = Rect2(484, 0, 484, 517)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aopsu"]
+atlas = ExtResource("1_o84yv")
+region = Rect2(968, 0, 484, 517)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_02ouk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bohpd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_644g2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bohpd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aopsu")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="BendLeafAnimation" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_02ouk")
+autoplay = "default"

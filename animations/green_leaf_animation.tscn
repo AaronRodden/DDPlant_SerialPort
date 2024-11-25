@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://cnhah5iod0wl8"]
+
+[ext_resource type="Texture2D" uid="uid://cwf3kcufyqmps" path="res://assets/greenleaf_spritesheet.png" id="1_764p2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2pf3o"]
+atlas = ExtResource("1_764p2")
+region = Rect2(0, 0, 493, 526)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7anc5"]
+atlas = ExtResource("1_764p2")
+region = Rect2(493, 0, 493, 526)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ktwvj"]
+atlas = ExtResource("1_764p2")
+region = Rect2(986, 0, 493, 526)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_u32ma"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2pf3o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7anc5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2pf3o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ktwvj")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="GreenLeafAnimation" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_u32ma")
+autoplay = "default"
+frame_progress = 0.350883
