@@ -16,16 +16,35 @@ var motion_sensor_regex = "MS\\d:(\\d+)"
 var CONDUCTIVE_SENSOR_COUNT = 6
 var FORSE_SENSOR_COUNT = 5
 
-# TODO: Final Stretch 11/23/24
-# 2. Responsive tree / health bar
-# 3. More leaves / animations for them blowing off
-# 4. Animation and papercraft sprites
+var fallen_leaves_positions = []
 
 # Called when the node enters the scene tree for the first time.
 # Set's up the game world on first startup
 func _ready():
 	grow_leaves()
 	
+	$ObstacleSpawner2.connect('health_lowered', tree_health_lowered)
+	$ObstacleSpawner3.connect('health_lowered', tree_health_lowered)
+	$ObstacleSpawner5.connect('health_lowered', tree_health_lowered)
+	$ObstacleSpawner6.connect('health_lowered', tree_health_lowered)
+	$ObstacleSpawner8.connect('health_lowered', tree_health_lowered)
+	$ObstacleSpawner9.connect('health_lowered', tree_health_lowered)
+
+	$ChatBubble.connect('happy_tree', regrow_leaves)
+
+# This function controlls leaves falling to indicate tree health
+func tree_health_lowered():
+	await get_tree().create_timer(1.5).timeout # Wait a little bit so that they start falling after obstacles roll in
+	var leaf_list = []
+	for node in self.get_children():
+		if node.name.contains("spawned_leaf"):
+			leaf_list.append(node)
+
+	var random_leaf_fall_count = randi_range(3,10)
+	for i in range(0, random_leaf_fall_count):
+		var random_leaf_index = randi_range(0, leaf_list.size()-1)
+		fallen_leaves_positions.append(leaf_list[random_leaf_index].position)
+		leaf_list[random_leaf_index].leaf_fall()
 
 func parse_controller_poll(controller_poll):
 	var parsed_inputs = {}
@@ -142,6 +161,14 @@ func grow_leaves():
 			# TODO: Pick a certain leaf?
 			var new_leaf = node.new_leaf(2, node.position, node.rotation)
 			add_child(new_leaf)
+			
+func regrow_leaves():
+	for node in self.get_children():
+		if node.name.contains("Leaf"):
+			for leaf_pos in fallen_leaves_positions:
+				if node.position == leaf_pos:
+					var new_leaf = node.new_leaf(2, leaf_pos, node.rotation)
+					add_child(new_leaf)
 			
 			
 func motion_detected_oz():

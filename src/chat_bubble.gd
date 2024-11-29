@@ -4,6 +4,8 @@ var rng = RandomNumberGenerator.new()
 
 var current_desire
 
+signal happy_tree
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -62,3 +64,4 @@ func provide_desire(given_desire):
 		$Smile.visible = true
 		await get_tree().create_timer(2).timeout
 		$Smile.visible = false
+		happy_tree.emit()

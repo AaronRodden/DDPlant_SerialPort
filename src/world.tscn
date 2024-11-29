@@ -36,7 +36,7 @@ rotation = 1.57079
 scale = Vector2(0.15, 0.15)
 
 [node name="Leaf2" parent="." instance=ExtResource("5_281m6")]
-position = Vector2(749.913, 171.314)
+position = Vector2(765, 179)
 rotation = 2.52898
 scale = Vector2(0.15, 0.15)
 
@@ -53,6 +53,21 @@ scale = Vector2(0.15, 0.15)
 [node name="Leaf6" parent="." instance=ExtResource("5_281m6")]
 position = Vector2(822, 525)
 rotation = 3.00546
+scale = Vector2(0.15, 0.15)
+
+[node name="Leaf13" parent="." instance=ExtResource("5_281m6")]
+position = Vector2(822.54, 256.54)
+rotation = 2.97579
+scale = Vector2(0.15, 0.15)
+
+[node name="Leaf14" parent="." instance=ExtResource("5_281m6")]
+position = Vector2(797.56, 249.56)
+rotation = 2.23926
+scale = Vector2(0.15, 0.15)
+
+[node name="Leaf19" parent="." instance=ExtResource("5_281m6")]
+position = Vector2(831.54, 264.54)
+rotation = -3.08574
 scale = Vector2(0.15, 0.15)
 
 [node name="Leaf10" parent="." instance=ExtResource("5_281m6")]

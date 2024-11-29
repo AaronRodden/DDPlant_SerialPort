@@ -15,6 +15,9 @@ var bendleaf_white_animation_path = preload("res://animations/bend_leaf_animatio
 var rng = RandomNumberGenerator.new()
 
 var texture_path = ""
+var velocity = Vector2(0, 0)
+var fall_flag = false
+var speed = 50
 
 # Leaf constructor
 func new_leaf(leaf_enum_value, leaf_position, leaf_rotation):
@@ -38,7 +41,29 @@ func new_leaf(leaf_enum_value, leaf_position, leaf_rotation):
 	new_leaf.scale.y = rand_scale
 	new_leaf.position = leaf_position
 	new_leaf.rotation = leaf_rotation
+	new_leaf.name = "spawned_leaf"
 	return new_leaf
+	
+#func leaf_fall():
+#	var starting_position = self.position
+#	var sway_value = randi_range(50, 150)
+#	var gravity_delta = 15
+#	var direction_constant = 1
+#
+#	var max_sway_negative = starting_position.x - sway_value
+#	var max_sway_posative = starting_position.x + sway_value
+#	fall_flag = true
+#	while true:
+##		self.position.x = self.position.x + sway_value 
+##		self.position.y = self.position.y + gravity_delta
+#		velocity.x = (self.position.x + sway_value) * direction_constant
+#		velocity.y =  self.position.y + gravity_delta
+#		await get_tree().create_timer(0.5).timeout
+#		if self.position.x >= max_sway_posative:
+#			direction_constant *= -1
+#		if self.position.x <= max_sway_negative:
+#			direction_constant *= -1
+		
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -50,10 +75,20 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.`
 func _process(delta):
-	self.rotation = rad_to_deg(0)
-	await get_tree().create_timer(0.5).timeout
-	self.rotation = rad_to_deg(-15) 
-	await get_tree().create_timer(0.5).timeout
-	self.rotation = rad_to_deg(0)
-	await get_tree().create_timer(0.5).timeout
-	self.rotation = rad_to_deg(15)
+	pass
+	if fall_flag:
+		velocity.x += velocity.x
+		velocity.y += velocity.y
+		velocity = velocity.normalized() * speed
+		position += velocity * delta
+#	self.rotation = rad_to_deg(0)
+#	await get_tree().create_timer(0.5).timeout
+#	self.rotation = rad_to_deg(-15) 
+#	await get_tree().create_timer(0.5).timeout
+#	self.rotation = rad_to_deg(0)
+#	await get_tree().create_timer(0.5).timeout
+#	self.rotation = rad_to_deg(15)
+
+
+func _on_visible_on_screen_notifier_2d_screen_exited():
+	queue_free()

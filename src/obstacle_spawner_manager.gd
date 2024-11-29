@@ -4,6 +4,7 @@ extends Sprite2D
 @export var obstacle_direction = "" # right, left, or center
 @export var obstacle_level = "" # top, middle, bottom
 
+signal health_lowered
 
 var TARGET_DELTA_X = Vector2(650,0)
 var TARGET_DELTA_Y = Vector2(0, 450)
@@ -28,6 +29,7 @@ func create_obstacle(obstacle_type, target_pos):
 	Global.obstacle_count += 1
 	Global.world_health -= 10
 	Global.world_health = clamp(Global.world_health, 0, 100)
+	health_lowered.emit()
 	
 func spawn_obstacle():
 	## NOTE: I am hardcoding this because we have one week to get this done yay!
